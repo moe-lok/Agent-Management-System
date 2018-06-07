@@ -8,12 +8,16 @@ import {IonicStorageModule} from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { ViewAgentsPage } from '../pages/view-agents/view-agents'; 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    AdminDashboardPage,
+    ViewAgentsPage,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import { LoginPage } from '../pages/login/login';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    AdminDashboardPage,
+    ViewAgentsPage,
   ],
   providers: [
     StatusBar,

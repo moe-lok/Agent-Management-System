@@ -1,0 +1,79 @@
+<!-- -->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>View Agents</strong> 
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="presentNotifications($event)">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="goToAccount()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-list>
+    <ng-container>
+      <ion-card>
+        <ion-card-content (click)="returnSwitch(i)">
+          <ion-list>
+            <ion-item-sliding>
+              <ion-item>
+                  <ion-thumbnail item-left>
+                      <ng-container>
+                        <img src="../assets/img/profile.jpg">
+                      </ng-container>
+                    </ion-thumbnail>
+                    <p>
+                <strong>Full Name:</strong>
+                </p>
+                Adam James
+                <p>
+                  <strong>Age:</strong>
+                </p>
+                23
+                <p>
+                  <strong>Credit Limit</strong>
+                </p>
+                2000
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button color="accept">
+                  <ion-icon ios="ios-person" md="md-person"></ion-icon>
+                  Edit
+                </button>
+                <button ion-button color="secondary">
+                  <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                  Delete
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+            <ion-item *ngIf="bool[i]">
+              <img src="" *ngIf="" alt="Ionic File" width="300" />
+              <p>
+                <strong>Member Since:</strong>
+              </p>
+              <div class="text-wrap">5th June 2018</div>
+              <p>
+                <strong>Address:</strong>
+              </p>
+              <div class="text-wrap">Malaysia</div>
+              <p>
+                <strong>Account Summary:</strong>
+              </p>
+              20
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+
+  </ion-list>
+</ion-content>
