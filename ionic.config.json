@@ -1,0 +1,8 @@
+{
+  "name": "Agent-Management-System",
+  "app_id": "60cdb6ce",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
