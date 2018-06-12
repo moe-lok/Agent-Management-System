@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
 import { ViewAgentsPage } from '../view-agents/view-agents';
+import {AngularFireAuth} from "angularfire2/auth";
 
 /**
  * Generated class for the AdminDashboardPage page.
@@ -17,10 +18,24 @@ import { ViewAgentsPage } from '../view-agents/view-agents';
 })
 export class AdminDashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,
+    private toast:ToastController) {
   }
 
   ionViewDidLoad() {
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.email && data.uid){
+        this.toast.create({
+          message: `Welcome to MKT app, ${data.email}`,
+          duration: 3000
+        }).present();
+      }else{
+        this.toast.create({
+          message: `Could not find authentication details`,
+          duration: 3000
+        }).present();
+      }
+  });
     console.log('ionViewDidLoad AdminDashboardPage');
   }
   
