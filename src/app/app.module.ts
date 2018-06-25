@@ -7,6 +7,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import {IonicStorageModule} from '@ionic/storage';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule} from "angularfire2/auth";
+import { AngularFireDatabaseModule } from "angularfire2/database";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -14,6 +15,8 @@ import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { ViewAgentsPage } from '../pages/view-agents/view-agents';
 import { RegisterPage} from "../pages/register/register";
 import { AgentDashboardPage} from "../pages/agent-dashboard/agent-dashboard";
+import { AgentProfilePage} from '../pages/agent-profile/agent-profile';
+import { ProfilePage } from '../pages/profile/profile';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 
 @NgModule({
@@ -24,7 +27,9 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     AdminDashboardPage,
     ViewAgentsPage,
     RegisterPage,
-    AgentDashboardPage
+    AgentDashboardPage,
+    AgentProfilePage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
         driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +50,9 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     AdminDashboardPage,
     ViewAgentsPage,
     RegisterPage,
-    AgentDashboardPage
+    AgentDashboardPage,
+    AgentProfilePage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

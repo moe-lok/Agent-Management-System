@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AgentProfilePage} from '../agent-profile/agent-profile';
 
 /**
  * Generated class for the ViewAgentsPage page.
@@ -36,6 +37,8 @@ export class ViewAgentsPage {
       this.bool[key] = !boolKey;
     }
     console.log(boolKey,key);
+
+    this.navCtrl.push(AgentProfilePage);
   }
 
 }

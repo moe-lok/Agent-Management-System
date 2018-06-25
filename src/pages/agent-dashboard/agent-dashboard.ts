@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import { LoginPage } from "../login/login";
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Profile } from '../../models/profile';
 
 /**
  * Generated class for the AgentDashboardPage page.
@@ -17,10 +19,28 @@ import { LoginPage } from "../login/login";
 })
 export class AgentDashboardPage {
 
-  constructor(private afAuth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+  //profileData: FirebaseObjectObservable<Profile>
+  profileData = {} as Profile;
+
+  constructor(private afAuth:AngularFireAuth, private afDatabase: AngularFireDatabase,
+    public navCtrl: NavController, public navParams: NavParams, private toast:ToastController) {
   }
 
   ionViewDidLoad() {
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.email && data.uid){
+        this.toast.create({
+          message: `Welcome to MKT app, ${data.email}`,
+          duration: 3000
+        }).present();
+
+      }else{
+        this.toast.create({
+          message: `Could not find authentication details`,
+          duration: 3000
+        }).present();
+      }
+    });
     console.log('ionViewDidLoad AgentDashboardPage');
   }
 

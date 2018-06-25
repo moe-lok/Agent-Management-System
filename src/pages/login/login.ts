@@ -6,6 +6,8 @@ import {RegisterPage} from "../register/register";
 import { AgentDashboardPage} from "../agent-dashboard/agent-dashboard";
 import { User } from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
+import { ProfilePage } from '../profile/profile';
+
 
 
 @Component({
@@ -32,7 +34,7 @@ export class LoginPage {
       if(result.uid == "OWmja3KKcSVwtrF5olPugS5fkpH3"){
         this.nav.setRoot(AdminDashboardPage);
       }else{
-        this.nav.setRoot(AgentDashboardPage);
+        this.nav.setRoot(ProfilePage);
       }
     }catch(e){
       this.presentAlert(e);
