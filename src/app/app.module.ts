@@ -15,6 +15,7 @@ import { ViewAgentsPage } from '../pages/view-agents/view-agents';
 import { RegisterPage} from "../pages/register/register";
 import { AgentDashboardPage} from "../pages/agent-dashboard/agent-dashboard";
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { OrderTicketPage } from "../pages/order-ticket/order-ticket";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     AdminDashboardPage,
     ViewAgentsPage,
     RegisterPage,
-    AgentDashboardPage
+    AgentDashboardPage,
+    OrderTicketPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     AdminDashboardPage,
     ViewAgentsPage,
     RegisterPage,
-    AgentDashboardPage
+    AgentDashboardPage,
+    OrderTicketPage
   ],
   providers: [
     StatusBar,

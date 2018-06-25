@@ -1,20 +1,67 @@
-<!--
-  Generated template for the AgentDashboardPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<!-- -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>agentDashboard</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Agent</strong> Panel
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="presentNotifications($event)">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="goToAccount()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content padding class="animated fadeIn common-bg">
 
-<ion-content padding>
-  <button ion-button icon-start block no-margin color="primary" class="round" tappable (click)="logout()">
-    <ion-icon name="log-out"></ion-icon>Log Out
-  </button>
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-item tappable (click)="choosePlace('from')" class="border-bottom">
+      <ion-icon name="search" color="primary" item-left></ion-icon>
+      <span>Sandakan</span>
+    </ion-item>
+
+  </ion-card>
+
+  <div >
+  
+  <h2>Featured Services</h2>
+    <ion-row class="header">
+      <ion-col (click)="order()" col-6>
+        <img src="assets/img/Logos/order.png" />
+        <p>Order Ticket</p>
+      </ion-col>
+  
+      <ion-col (click)="showAlert(1)" col-6>
+        <img src="assets/img/Logos/results.png" />
+        <p>View Results</p>
+      </ion-col>
+  
+      <ion-col (click)="showAlert(2)" col-6>
+        <img src="assets/img/Logos/order.png" />
+        <p>View History</p>
+      </ion-col>
+  
+      <ion-col (click)="showAlert(3)" col-6>
+        <img src="assets/img/Logos/order.png" />
+        <p>Notice</p>
+      </ion-col>
+  
+      <ion-col (click)="showAlert(4)" col-6>
+        <img src="assets/img/Logos/order.png" />
+        <p>Setting</p>
+      </ion-col>
+  
+      <ion-col (click)="showAlert(5)" col-6>
+        <img src="assets/img/Logos/order.png" />
+        <p>Help</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
 </ion-content>

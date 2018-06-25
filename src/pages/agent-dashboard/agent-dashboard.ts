@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
+import { OrderTicketPage } from '../order-ticket/order-ticket';
 import {AngularFireAuth} from "angularfire2/auth";
-import { LoginPage } from "../login/login";
 
 /**
  * Generated class for the AgentDashboardPage page.
@@ -17,20 +17,15 @@ import { LoginPage } from "../login/login";
 })
 export class AgentDashboardPage {
 
-  constructor(private afAuth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth:AngularFireAuth, public nav: NavController, public alertCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController)  {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgentDashboardPage');
   }
-
-  logout() {
-    try{
-      this.afAuth.auth.signOut();
-      this.navCtrl.setRoot(LoginPage);
-    }catch(e){
-      console.error(e);
-    }
+  //go to order page
+  order(){
+    this.nav.setRoot(OrderTicketPage);
   }
 
 }

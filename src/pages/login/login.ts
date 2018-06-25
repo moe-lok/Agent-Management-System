@@ -3,7 +3,7 @@ import {NavController, AlertController, ToastController, MenuController} from "i
 import {HomePage} from "../home/home";
 import {AdminDashboardPage} from "../admin-dashboard/admin-dashboard";
 import {RegisterPage} from "../register/register";
-import { AgentDashboardPage} from "../agent-dashboard/agent-dashboard";
+import {AgentDashboardPage} from "../agent-dashboard/agent-dashboard";
 import { User } from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
 
@@ -23,6 +23,11 @@ export class LoginPage {
   // go to register page
   register() {
     this.nav.setRoot(RegisterPage);
+  }
+
+  //go to agent page
+  agentlogin(){
+    this.nav.setRoot(AgentDashboardPage);
   }
 
   // login and go to home page
