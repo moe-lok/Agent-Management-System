@@ -1,0 +1,50 @@
+<!-- -->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Order</strong> 
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="presentNotifications($event)">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="goToAccount()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-item>
+      <ion-label>order</ion-label>
+      <ion-select [(ngModel)]="Order">
+        <ion-option>283 ASTRO3000</ion-option>
+        <ion-option>285 ASTRO3010</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+  
+  <p>XBSAC4A (e.g. D#3* for Auto Ticket)</p>
+  <ion-item>
+    <ion-label color="primary" fixed>D#</ion-label>
+    <ion-input type="tel" placeholder="Order Number"></ion-input>
+  </ion-item>
+  <div class="center">
+  <button ion-button round>Order</button>
+  </div>
+
+  <ion-item>
+    <ion-textarea type="tel" placeholder="Enter a code"></ion-textarea>
+  </ion-item>
+
+  <div class="center">
+    <button ion-button round>Reset</button>
+    </div>
+
+</ion-content>

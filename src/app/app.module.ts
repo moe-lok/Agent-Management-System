@@ -18,6 +18,7 @@ import { AgentDashboardPage} from "../pages/agent-dashboard/agent-dashboard";
 import { AgentProfilePage} from '../pages/agent-profile/agent-profile';
 import { ProfilePage } from '../pages/profile/profile';
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { OrderTicketPage } from "../pages/order-ticket/order-ticket";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     RegisterPage,
     AgentDashboardPage,
     AgentProfilePage,
-    ProfilePage
+    ProfilePage,
+    OrderTicketPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     RegisterPage,
     AgentDashboardPage,
     AgentProfilePage,
-    ProfilePage
+    ProfilePage,
+    OrderTicketPage
   ],
   providers: [
     StatusBar,
