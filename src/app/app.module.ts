@@ -19,6 +19,7 @@ import { AgentProfilePage} from '../pages/agent-profile/agent-profile';
 import { ProfilePage } from '../pages/profile/profile';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { OrderTicketPage } from "../pages/order-ticket/order-ticket";
+import { OrderHistoryPage } from "../pages/order-history/order-history"
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrderTicketPage } from "../pages/order-ticket/order-ticket";
     AgentDashboardPage,
     AgentProfilePage,
     ProfilePage,
-    OrderTicketPage
+    OrderTicketPage,
+    OrderHistoryPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { OrderTicketPage } from "../pages/order-ticket/order-ticket";
     AgentDashboardPage,
     AgentProfilePage,
     ProfilePage,
-    OrderTicketPage
+    OrderTicketPage,
+    OrderHistoryPage
   ],
   providers: [
     StatusBar,

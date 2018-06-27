@@ -36,11 +36,11 @@
     <ion-input type="tel" placeholder="Order Number"></ion-input>
   </ion-item>
   <div class="center">
-  <button ion-button round>Order</button>
+  <button ion-button round (click)="addTicketItem(ticketItem)">Order</button>
   </div>
 
   <ion-item>
-    <ion-textarea type="tel" placeholder="Enter a code"></ion-textarea>
+    <ion-textarea type="number" placeholder="Enter a code" [(ngModel)]="ticketItem.ticketNumber"></ion-textarea>
   </ion-item>
 
   <div class="center">

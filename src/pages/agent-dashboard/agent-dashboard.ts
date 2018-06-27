@@ -5,6 +5,8 @@ import { LoginPage } from "../login/login";
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Profile } from '../../models/profile';
 import { OrderTicketPage } from '../order-ticket/order-ticket';
+import { OrderHistoryPage } from "../order-history/order-history"
+
 
 /**
  * Generated class for the AgentDashboardPage page.
@@ -45,9 +47,13 @@ export class AgentDashboardPage {
     });
     console.log('ionViewDidLoad AgentDashboardPage');
   }
+  //go to order history page
+  orderHistory(){
+    this.nav.push(OrderHistoryPage);
+  }
   //go to order page
   order(){
-    this.nav.setRoot(OrderTicketPage);
+    this.nav.push(OrderTicketPage);
   }
 
 }
