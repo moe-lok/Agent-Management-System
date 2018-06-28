@@ -31,7 +31,7 @@ export class AgentDashboardPage {
   }
 
   ionViewDidLoad() {
-    this.afAuth.authState.subscribe(data => {
+    this.afAuth.authState.take(1).subscribe(data => {
       if(data && data.email && data.uid){
         this.toast.create({
           message: `Welcome to MKT app, ${data.email}`,

@@ -7,7 +7,7 @@ import {AgentDashboardPage} from "../agent-dashboard/agent-dashboard";
 import { User } from "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
 import { ProfilePage } from '../profile/profile';
-
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
 
 @Component({
@@ -18,8 +18,12 @@ export class LoginPage {
 
   user = {} as User
 
-  constructor(private afAuth:AngularFireAuth, public nav: NavController, public alertCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+  userProfile$: AngularFireObject<any>;
+
+  constructor(private afAuth:AngularFireAuth, public nav: NavController,
+    public alertCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController, private database: AngularFireDatabase) {
     this.menu.swipeEnable(false);
+    this.userProfile$ = this.database.object('profile');
   }
 
   // go to register page
@@ -39,7 +43,16 @@ export class LoginPage {
       if(result.uid == "OWmja3KKcSVwtrF5olPugS5fkpH3"){
         this.nav.setRoot(AdminDashboardPage);
       }else{
-        this.nav.setRoot(ProfilePage);
+        //getting the profile uid
+        this.userProfile$ = this.database.object(`profile/${result.uid}`);
+        this.userProfile$.snapshotChanges().take(1).subscribe(snapshot=>{
+          console.log(snapshot);
+          if(snapshot.key == null){//if not exist then key in profile
+            this.nav.setRoot(ProfilePage);
+          }else{//else proceed to dashboard
+            this.nav.setRoot(AgentDashboardPage);
+          }
+       });
       }
     }catch(e){
       this.presentAlert(e);
