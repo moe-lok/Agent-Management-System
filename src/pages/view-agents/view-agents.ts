@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AgentProfilePage} from '../agent-profile/agent-profile';
+import { AngularFireDatabase} from 'angularfire2/database';
+import { Profile } from '../../models/profile';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the ViewAgentsPage page.
@@ -16,8 +19,13 @@ import { AgentProfilePage} from '../agent-profile/agent-profile';
 })
 export class ViewAgentsPage {
 
-  bool:any [] = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  profileList : Observable<Profile[]>;
+  list:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFireDatabase) {
+
+    this.profileList = db.list<Profile>('profile').snapshotChanges().map(changes =>
+      changes.map(c => ({ key: c.payload.key, ...c.payload.val()}))
+    );
   }
 
   ionViewDidLoad() {
@@ -25,20 +33,10 @@ export class ViewAgentsPage {
   }
 
   returnSwitch(key:any){
-    var boolKey = this.bool[key];
+    
+    console.log(key);
 
-    if(boolKey==true){
-      this.bool[key] = !boolKey;
-    }else{
-      var j = this.bool;
-      for(var i in j){
-        this.bool[i] = false;
-      }
-      this.bool[key] = !boolKey;
-    }
-    console.log(boolKey,key);
-
-    this.navCtrl.push(AgentProfilePage);
+    this.navCtrl.push(AgentProfilePage, key);
   }
 
 }
