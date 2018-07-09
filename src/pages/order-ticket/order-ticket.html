@@ -40,11 +40,11 @@
   </div>
 
   <ion-item>
-    <ion-textarea type="number" placeholder="Enter a code" [(ngModel)]="ticketItem.ticketNumber"></ion-textarea>
+    <ion-textarea type="number" placeholder="Enter a code" [(ngModel)]="rawTicket"></ion-textarea>
   </ion-item>
 
   <div class="center">
-    <button ion-button round>Reset</button>
+    <button ion-button round (click)="testTicket(rawTicket)">Debug</button>
     </div>
 
 </ion-content>

@@ -16,8 +16,10 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let item of ticketOrderHistory">
-      <h2>Ticket number: {{item.ticketNumber}}</h2>
+    <ion-item *ngFor="let item of ticketOrderHistory | async" (click)="viewOrderHistoryDetails(item.key,item.padang,item.total)">
+      <h2>Time: {{item.timeStamp | date:'dd/MM/yyyy H:mm'}}</h2>
+      <p>Padang: {{item.padang}}</p>
+      <h3>Total: RM {{item.total}}</h3>
     </ion-item>
   </ion-list>
 
